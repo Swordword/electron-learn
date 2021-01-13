@@ -9,7 +9,6 @@ app.on('ready', () => {
   })
   mainWindow.loadFile('index.html');
   mainWindow.webContents.openDevTools()
-  require('devtron').install()
   // let secondWindow = new BrowserWindow({
   //   width:400,
   //   height:300, 
