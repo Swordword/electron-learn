@@ -1,20 +1,12 @@
 const { app, BrowserWindow } = require('electron')
 app.on('ready', () => {
   let mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 800,
     webPreferences: {
       nodeIntegration: true,
     },
   })
-  mainWindow.loadFile('index.html')
-  let secondWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
-    webPreferences: {
-      nodeIntegration: true,
-    },
-    parent: mainWindow,
-  })
-  secondWindow.loadFile('second.html')
+  mainWindow.webContents.openDevTools()
+  mainWindow.loadFile('index.html');
 })
