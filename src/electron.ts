@@ -8,7 +8,7 @@ function createWindow() {
       nodeIntegration: true,
     },
   })
-  win.loadFile('index.html')
-
+  // win.loadFile('index.html')
+  win.loadURL('http://localhost:8080/')
 }
 app.on('ready', createWindow)

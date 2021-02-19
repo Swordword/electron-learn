@@ -4,8 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config ./webpack.config.js",
-    "start": "yarn build && electron ./dist/electron.js"
+    "main": "webpack --config webpack.main.js",
+    "renderer": "webpack serve --config webpack.renderer.js",
+    "serve": "yarn main && yarn renderer",
+    "start": "electron ./dist/electron.js"
   },
   "devDependencies": {
     "@types/react": "^17.0.2",

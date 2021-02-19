@@ -1,36 +1,4 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpackMain = require('./webpack.main')
+const webpackRenderer = require('./webpack.renderer')
 
-module.exports = [
-  ,
-  {
-    mode: 'development',
-    entry: './src/react.tsx',
-    target: 'electron-renderer',
-    devtool: 'source-map',
-    module: {
-      rules: [
-        {
-          test: /\.ts(x)$/,
-          include: /src/,
-          use: [
-            {
-              loader: 'ts-loader',
-            },
-          ],
-        },
-      ],
-    },
-    output: {
-      path: __dirname + '/dist',
-      filename: 'react.js',
-    },
-    devServer: {
-      contentBase: './dist',
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: './src/index.html',
-      }),
-    ],
-  },
-]
+module.exports = [webpackMain, webpackRenderer]
