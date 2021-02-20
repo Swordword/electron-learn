@@ -1,4 +1,4 @@
-const webpackMain = require('./webpack.main')
-const webpackRenderer = require('./webpack.renderer')
+const webpackMain = require('./build/webpack.main')
+const webpackRenderer = require('./build/webpack.renderer')
 
 module.exports = [webpackMain, webpackRenderer]

@@ -1,6 +1,9 @@
+const { join } = require('path')
 module.exports = {
   mode: 'development',
-  entry: './src/electron.ts',
+  entry: {
+    main: join(__dirname, '../src/main/electron.ts'),
+  },
   target: 'electron-main',
   module: {
     rules: [

@@ -1,8 +1,9 @@
+const { join } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   mode: 'development',
-  entry: './src/react.tsx',
+  entry: join(__dirname, '../src/renderer/renderer.tsx'),
   target: 'electron-renderer',
   devtool: 'source-map',
   module: {
@@ -19,8 +20,8 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + '/dist',
-    filename: 'react.js',
+    path: join(__dirname, '../dist'),
+    filename: '[name].js',
   },
   devServer: {
     contentBase: './dist',
