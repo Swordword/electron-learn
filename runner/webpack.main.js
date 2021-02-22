@@ -1,4 +1,5 @@
 const { join } = require('path')
+process.env.BABEL_ENV = 'main'
 module.exports = {
   mode: 'development',
   entry: {

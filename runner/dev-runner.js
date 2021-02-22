@@ -13,7 +13,7 @@ function greeting() {
 
 function buildRenderer() {}
 function buildMain() {
-  mainConfig.entry.main
+  WebpackDevServer()
 }
 
 function startElectron() {}

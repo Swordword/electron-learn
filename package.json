@@ -7,7 +7,43 @@
     "main": "webpack --config webpack.main.js",
     "renderer": "webpack serve --config webpack.renderer.js",
     "serve": "yarn main && yarn renderer",
-    "start": "electron ./dist/electron.js"
+    "start": "electron ./dist/electron.js",
+    "dev": "node runner/dev-runner.js",
+    "build": "node runner/build.js && electron-builder"
+  },
+  "build":{
+    "productName": "成果模型查看器",
+    "appId": "com.example.yourapp",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/electron/**/*"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "build/icons/icon.icns"
+    },
+    "win": {
+      "icon": "static/icon.ico"
+    },
+    "linux": {
+      "icon": "build/icons"
+    }
   },
   "devDependencies": {
     "@types/react": "^17.0.2",
