@@ -1,9 +1,9 @@
-const { join } = require('path')
+const path = require('path')
 process.env.BABEL_ENV = 'main'
 module.exports = {
   mode: 'development',
   entry: {
-    main: join(__dirname, '../src/main/electron.ts'),
+    main: path.join(__dirname, '../src/main/electron.ts'),
   },
   target: 'electron-main',
   module: {
@@ -16,8 +16,8 @@ module.exports = {
     ],
   },
   output: {
-    path: __dirname + '/dist',
-    filename: 'electron.js',
+    path: path.join(__dirname, '../dist'),
+    filename: 'main.js',
   },
   devServer: {
     contentBase: './dist',
