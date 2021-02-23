@@ -1,24 +1,24 @@
 {
   "name": "resource-upload-desktop",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/electron.js",
   "license": "MIT",
   "scripts": {
     "main": "webpack --config  cli-build/webpack.main.js",
     "renderer": "webpack serve --config cli-build/webpack.renderer.js",
     "serve": "yarn main && yarn renderer",
-    "start": "electron ./dist/main.js",
+    "start": "electron ./dist/electron.js",
     "dev": "node cli-build/dev.js",
-    "build": "node runner/build.js && electron-builder"
+    "build": "node cli-build/build.js && electron-builder"
   },
   "build": {
-    "productName": "测试模型",
+    "productName": "testApp",
     "appId": "com.example.yourapp",
     "directories": {
       "output": "build"
     },
     "files": [
-      "dist/electron/**/*"
+      "dist/**/*"
     ],
     "dmg": {
       "contents": [

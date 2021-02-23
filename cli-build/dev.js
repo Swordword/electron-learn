@@ -7,7 +7,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware')
 
 const mainConfig = require('./webpack.main')
 const rendererConfig = require('./webpack.renderer')
-const dev = 'development'
+const env = 'development'
 
 let hotMiddleware
 
@@ -28,22 +28,24 @@ function greeting() {
 
 function buildMain() {
   return new Promise((resolve) => {
-    mainConfig.mode = dev
+    mainConfig.mode = env
     const compiler = webpack(mainConfig)
     // compiler.hooks.watchRun.tapAsync('')
+    compiler.close(()=>{
+      resolve()
+    })
     compiler.watch({}, (err, stats) => {
       if (err) {
         console.error(err)
         return
       }
-      resolve()
     })
   })
 }
 
 function buildRenderer() {
   return new Promise((resolve) => {
-    rendererConfig.mode = dev
+    rendererConfig.mode = env
     const compiler = webpack(rendererConfig)
     hotMiddleware = webpackHotMiddleware(compiler, {
       log: false,
@@ -67,7 +69,7 @@ function buildRenderer() {
 
 function startElectron() {
   console.log('fn startElectron')
-  var args = [path.join(__dirname, '../dist/main.js')]
+  var args = [path.join(__dirname, '../dist/electron.js')]
   let electronProcess = spawn(electron, args)
   electronProcess.on('close', () => {
     process.exit()
