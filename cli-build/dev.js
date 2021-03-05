@@ -53,7 +53,7 @@ function buildRenderer() {
     })
 
     const server = new WebpackDevServer(compiler, {
-      contentBase: path.join(__dirname, '../'),
+      contentBase: path.join(__dirname, '../dist'),
       quiet: true,
       before(app, ctx) {
         app.use(hotMiddleware)
