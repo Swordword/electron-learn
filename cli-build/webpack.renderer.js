@@ -31,6 +31,12 @@ const rendererConfig = {
       template: path.join(__dirname, '../src/renderer/index.html'),
     }),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../src/renderer/'),
+    },
+    extensions:['.ts','.tsx','.js','.jsx']
+  },
 }
 
 module.exports = rendererConfig

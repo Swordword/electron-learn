@@ -63,7 +63,7 @@ function buildRenderer() {
       },
     })
 
-    server.listen(8080)
+    server.listen(8766)
   })
 }
 

@@ -4,8 +4,8 @@ let mainWindow
 
 function createWindow() {
   let mainWindow = new BrowserWindow({
-    width: 1200,
-    height: 900,
+    width: 384,
+    height: 450,
     webPreferences: {
       nodeIntegration: true,
     },
@@ -13,7 +13,7 @@ function createWindow() {
 
   const winURL =
   process.env.NODE_ENV === 'development'
-    ? `http://localhost:8080`
+    ? `http://localhost:8766`
     : `file://${__dirname}/index.html`
 
   mainWindow.loadURL(winURL)
