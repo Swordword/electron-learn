@@ -3,11 +3,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const rendererConfig = {
   // mode: 'development',
-  entry: path.join(__dirname, '../src/renderer/renderer.tsx'),
+  mode: 'production',
+  entry: path.resolve(__dirname, '../src/renderer/renderer.tsx'),
   target: 'electron-renderer',
   devtool: 'source-map',
   module: {
     rules: [
+      {
+        test: /\.(png|jpg|jpeg)$/,
+        type: 'asset/resource',
+      },
       {
         test: /\.ts(x)$/,
         include: /src/,
@@ -20,22 +25,23 @@ const rendererConfig = {
     ],
   },
   output: {
-    path: path.join(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].js',
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
-  // devServer: {
-  //   contentBase: path.join(__dirname, '../dist'),
-  // },
+  devServer: {
+    contentBase: path.resolve(__dirname, '../dist'),
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../src/renderer/index.html'),
+      template: path.resolve(__dirname, '../src/renderer/index.html'),
     }),
   ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '../src/renderer/'),
     },
-    extensions:['.ts','.tsx','.js','.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 }
 
