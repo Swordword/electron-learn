@@ -9,7 +9,8 @@
     "serve": "yarn main && yarn renderer",
     "start": "electron ./dist/electron.js",
     "dev": "node cli-build/dev.js",
-    "build": "node cli-build/build.js && electron-builder"
+    "build": "node cli-build/build.js && electron-builder",
+    "build:windows": "node cli-build/build.js && electron-builder --win --x64"
   },
   "build": {
     "productName": "testApp",
