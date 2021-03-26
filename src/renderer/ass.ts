@@ -1,4 +1,4 @@
-import demo from './demo.png'
+import demo from './LOGO.png'
 
 console.log('demo', demo)
 
